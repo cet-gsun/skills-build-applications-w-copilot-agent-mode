@@ -6,7 +6,7 @@ const router = Router()
 router.get('/', async (_req, res) => {
   try {
     const activities = await Activity.find().sort({ performedAt: -1 }).limit(50)
-    res.json({ data: activities })
+    res.json(activities)
   } catch (error) {
     console.error('Activity load error:', error)
     const message = error instanceof Error ? error.message : 'Unable to load activities'
